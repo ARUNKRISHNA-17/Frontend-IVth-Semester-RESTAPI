@@ -7,8 +7,7 @@ import '../styles/Register.css';
 import axios from 'axios';
 
 export default function Register() {
-
-  let navigate = useNavigate();
+  const navigate = useNavigate();
   
   const [signupData, setSignupData] = useState({
     username: '',
@@ -16,15 +15,16 @@ export default function Register() {
     password: ''
   });
 
-  const [errors, setErrors] = useState({}); // Add state for errors
+  const [errors, setErrors] = useState({});
 
-  const { username, email, password } = signupData; // Destructure signupData
+  const { username, email, password } = signupData;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+    console.log("Sign Up button clicked"); // Log button click event
+
     const validationErrors = validateForm();
-  
+
     if (Object.keys(validationErrors).length === 0) {
       try {
         const response = await axios.post("http://localhost:8080/register", {
@@ -32,12 +32,11 @@ export default function Register() {
           email: email,
           password: password,
         });
-  
-        if (response.data.success) {
+
+        if (response.data === "Registration successful") {
           console.log("Registration successful");
-          // Navigate to the login page
-          toast.success("Success!!")
-          navigate("/login");
+          toast.success("Success!!");
+          navigate('/login'); // Navigate to the login page
         } else {
           toast.error(response.data.message);
         }
@@ -48,12 +47,10 @@ export default function Register() {
       setErrors(validationErrors);
     }
   };
-  
 
   const validateForm = () => {
     const errors = {};
 
-    // Perform validation checks
     if (!username) {
       errors.username = "Username is required";
     }
@@ -66,7 +63,6 @@ export default function Register() {
       errors.password = "Password is required";
     }
 
-    // Return the errors object
     return errors;
   };
 
@@ -121,7 +117,7 @@ export default function Register() {
             />
             {errors.password && <span className="error">{errors.password}</span>}
 
-            <button type="submit" className="button-register" onClick={(e)=>handleSubmit(e)}>
+            <button type="submit" className="button-register">
               Sign Up
             </button>
             <ToastContainer
@@ -135,7 +131,7 @@ export default function Register() {
               draggable={false}
             />
           </form>
-          <Link to={'/login'}>
+          <Link to="/login">
             <button className="link-btn-register">
               Already have an account? Login here.
             </button>

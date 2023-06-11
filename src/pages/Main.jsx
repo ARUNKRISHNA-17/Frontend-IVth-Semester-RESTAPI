@@ -20,6 +20,8 @@ export default function Main() {
   };
 
   return (
+    <div className="bg-warning" style={{ marginBottom: '80px' }}>
+
     <div className="container">
       <nav className="navbar my-4 navbar-expand-lg navbar-dark  bg-secondary">
         <div className="container-fluid">
@@ -34,7 +36,7 @@ export default function Main() {
             aria-controls="navbarSupportedContent"
             aria-expanded="false"
             aria-label="Toggle navigation"
-          >
+            >
             <span className="navbar-toggler-icon"></span>
           </button>
           <Link className="btn btn-outline-light" to="/addDetails">
@@ -52,10 +54,12 @@ export default function Main() {
               <th scope="col">Customer_Favourite_Laptop</th>
               <th scope="col">Customer_Laptop_Price</th>
               <th scope="col">Customer_Ratings</th>
-              <th scope="col">Customer_Mobile</th>              {/* <th scope="col">totalnoofpass</th>
+              <th scope="col">Customer_Mobile</th>              
+              <th scope="col">Operations</th>              
+              {/* <th scope="col">totalnoofpass</th>
               <th scope="col">route</th>
               <th scope="col">busownership</th>
-              <th scope="col">time</th> */}
+            <th scope="col">time</th> */}
             </tr>
           </thead>
           <tbody>
@@ -70,7 +74,7 @@ export default function Main() {
                 {/* <td>{user.total_no_of_passengers}</td>
                 <td>{user.route}</td>
                 <td>{user.busownership}</td>
-                <td>{user.time}</td> */}
+              <td>{user.time}</td> */}
                 <td>
                   <Link className="btn btn-outline-success mx-2" to={`/getdetails/${user.lapid}`}>
                     VIEW 
@@ -82,7 +86,7 @@ export default function Main() {
                   <button
                     className="btn btn-outline-danger mx-2"
                     onClick={() => deleteTeam(user.lapid)}
-                  >
+                    >
                     DELETE
                   </button>
                 </td>
@@ -92,5 +96,6 @@ export default function Main() {
         </table>
       </div>
     </div>
+  </div>
     );
 }

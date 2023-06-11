@@ -12,6 +12,7 @@ import AddDetails from '../pages/AddDetails';
 import Main from '../pages/Main';
 import ViewDetails from '../pages/ViewDetails';
 import EditDetails from '../pages/EditDetails';
+import ForgotPassword from '../pages/ForgotPassword';
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -23,10 +24,11 @@ function AnimatedRoutes() {
         <Route path="/menu" element={<Menu />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/login" element={<Login />} />
+        <Route exact path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/data" element={<Main />} />
         <Route path="/addDetails" element={<AddDetails />} />
+        <Route path="/forgot" element={<ForgotPassword />} />
         <Route exact path="/getdetails/:lapid" element={<ViewDetails />} />
         <Route exact path="/editdetails/:lapid" element={<EditDetails />} />
       </Routes>

@@ -16,8 +16,8 @@ export default function EditDetails() {
   });
 
   useEffect(() => {
-    loadUser();
-  }, []);
+    loadUser();//eslint-disable-next-line
+  }, [lapid]);
 
   const loadUser = async () => {
     try {

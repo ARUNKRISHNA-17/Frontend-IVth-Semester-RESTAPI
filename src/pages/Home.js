@@ -12,7 +12,7 @@ function Home() {
     exit={{opacity: 0}}   
     >
       <div className="headerContainer">
-        <h1>Laptop Store</h1>
+        <h1>Laptronics</h1>
         <p>We have what you desire</p>
         <Link to="/menu">
           <button> ORDER NOW </button>

@@ -1,13 +1,15 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import 'bootstrap/dist/css/bootstrap.css';
 
 
 export default function AddDetails() {
   let navigate = useNavigate();
 
   const [user, setUser] = useState({
-
+    lapid:'',
     cuslap: '',
     cusfavlap: '',
     cuslapprice: '',
@@ -23,7 +25,9 @@ export default function AddDetails() {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    await axios.post("http://localhost:8080/addDetails",user);
+    const response = await axios.post("http://localhost:8080/addDetails",user);
+    toast.success("Customer Added Successfully!!!");
+    console.log(response.data)
     navigate('/data');
   };
 
@@ -33,7 +37,7 @@ export default function AddDetails() {
         <div className="col-md-6 offset-md-3 border rounded p-4 mt-2 shadow ">
           <h2 className="text-center m-4">Add Details</h2>
           <form onSubmit={(e) => onSubmit(e)}>
-          
+
             <div className="mb-3">
               <label htmlFor="Name" className="form-label">
                 Customer_Laptop
@@ -41,7 +45,7 @@ export default function AddDetails() {
               <input
                 type="text"
                 className="form-control border-dark shadow"
-                placeholder="Enter Bus_NUM"
+                placeholder="Enter Customer Laptop Name"
                 name="cuslap"
                 value={cuslap}
                 onChange={(e) => onInputChange(e)}
@@ -54,7 +58,7 @@ export default function AddDetails() {
               <input
                 type="text"
                 className="form-control border-dark shadow"
-                placeholder="Enter The StartPoint"
+                placeholder="Enter The Customer's Favourite Laptop"
                 name="cusfavlap"
                 value={cusfavlap}
                 onChange={(e) => onInputChange(e)}
@@ -67,7 +71,7 @@ export default function AddDetails() {
               <input
                 type="text"
                 className="form-control border-dark shadow"
-                placeholder="Enter The End_Point"
+                placeholder="Enter Price of the Laptop"
                 name="cuslapprice"
                 value={cuslapprice}
                 onChange={(e) => onInputChange(e)}
@@ -80,7 +84,7 @@ export default function AddDetails() {
               <input
                 type="text"
                 className="form-control border-dark shadow"
-                placeholder="Enter Your Destination"
+                placeholder="Enter the Customer's Rating"
                 name="cusratings"
                 value={cusratings}
                 onChange={(e) => onInputChange(e)}
@@ -93,7 +97,7 @@ export default function AddDetails() {
               <input
                 type="text"
                 className="form-control border-dark shadow"
-                placeholder="Enter The Total No of Passengers"
+                placeholder="Enter The Contact of the customer"
                 name="cusmobile"
                 value={cusmobile}
                 onChange={(e) => onInputChange(e)}
