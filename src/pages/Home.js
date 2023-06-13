@@ -14,7 +14,7 @@ function Home() {
       <div className="headerContainer">
         <h1>Laptronics</h1>
         <p>We have what you desire</p>
-        <Link to="/menu">
+        <Link to="/shop">
           <button> ORDER NOW </button>
         </Link>
       </div>

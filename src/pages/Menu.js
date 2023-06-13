@@ -11,7 +11,7 @@ function Menu() {
     animate={{opacity: 1}}
     exit={{opacity: 0}}
     >
-      <h1 className="menuTitle">Our Products</h1>
+      <h1 className="menuTitle">Customizable Items</h1>
       <div className="menuList">
         {MenuList.map((menuItem, key) => {
           return (

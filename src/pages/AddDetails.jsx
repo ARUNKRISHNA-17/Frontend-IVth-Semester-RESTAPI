@@ -53,7 +53,7 @@ export default function AddDetails() {
             </div>
             <div className="mb-3">
               <label htmlFor="Name" className="form-label">
-                Customer_Favourite_Laptop
+                Customer_Wishlist
               </label>
               <input
                 type="text"
@@ -66,7 +66,7 @@ export default function AddDetails() {
             </div>
             <div className="mb-3">
               <label htmlFor="Name" className="form-label">
-                Customer_Laptop_Price
+                Customer_Expected_Laptop_Price
               </label>
               <input
                 type="text"

@@ -13,6 +13,8 @@ import Main from '../pages/Main';
 import ViewDetails from '../pages/ViewDetails';
 import EditDetails from '../pages/EditDetails';
 import ForgotPassword from '../pages/ForgotPassword';
+import { Shop } from '../pages/shop/Shop';
+import { Cart } from '../pages/Cart';
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -29,6 +31,8 @@ function AnimatedRoutes() {
         <Route path="/data" element={<Main />} />
         <Route path="/addDetails" element={<AddDetails />} />
         <Route path="/forgot" element={<ForgotPassword />} />
+        <Route path="/shop" element={<Shop />} />
+        <Route path="/cart" element={<Cart />} />
         <Route exact path="/getdetails/:lapid" element={<ViewDetails />} />
         <Route exact path="/editdetails/:lapid" element={<EditDetails />} />
       </Routes>

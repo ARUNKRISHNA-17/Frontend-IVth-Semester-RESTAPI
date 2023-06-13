@@ -15,7 +15,9 @@ function Navbar() {
         <img src={Logo} alt="Logo"/>
         <div className="hiddenLinks">
           <Link to="/"> Home </Link>
-          <Link to="/menu"> Products </Link>
+          <Link to="/menu"> Featured </Link>
+          <Link to="/shop"> Shop </Link>
+          <Link to="/cart"> Cart </Link>
           <Link to="/about"> About </Link>
           <Link to="/contact"> Contact </Link>
           <Link to="/login"> Login/SignUp </Link>
@@ -24,7 +26,9 @@ function Navbar() {
       </div>
       <div className="rightSide">
         <Link to="/" className="btn-link"> Home </Link>
-        <Link to="/menu" className="btn-link"> Products </Link>
+        <Link to="/menu" className="btn-link"> Featured </Link>
+        <Link to="/shop" className="btn-link"> Shop </Link>
+        <Link to="/cart" className="btn-link"> Cart </Link>
         <Link to="/about" className="btn-link"> About </Link>
         <Link to="/contact" className="btn-link"> Contact </Link>
         <Link to="/login" className="btn-link"> Login/SignUp </Link>         

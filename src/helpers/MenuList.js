@@ -1,9 +1,9 @@
 import Strix from "../assets/strix.jpg";
 import Margherita from "../assets/omen.avif";
 import PedroTechSpecial from "../assets/predator.avif";
-import Vegan from "../assets/asus-x13.jpg";
+import Vegan from "../assets/x13.png";
 import Pineapple from "../assets/pavillion.avif";
-import Expensive from "../assets/acer-aspire.jpg";
+import Expensive from "../assets/acer-aspire.png";
 
 export const MenuList = [
   {
@@ -32,7 +32,7 @@ export const MenuList = [
     price: 89999,
   },
   {
-    name: "Acer Aspire 5",
+    name: "Acer Aspire V15",
     image: Expensive,
     price: 59999,
   },

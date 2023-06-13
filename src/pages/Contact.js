@@ -2,8 +2,19 @@ import React from "react";
 import PizzaLeft from "../assets/contact.jpg";
 import "../styles/Contact.css";
 import {motion} from 'framer-motion';
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router";
 
 function Contact() {
+
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+  
+    toast.success("Your issues will be dealt with asap");
+    navigate('/');
+  }
   return (
     <motion.div className="contact"
     initial={{opacity: 0}}
@@ -29,7 +40,7 @@ function Contact() {
             name="message"
             required
           ></textarea>
-          <button type="submit"> Send Message</button>
+          <button type="submit" onClick={handleSubmit}> Send Message</button>
         </form>
       </div>
     </motion.div>

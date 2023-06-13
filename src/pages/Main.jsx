@@ -20,7 +20,7 @@ export default function Main() {
   };
 
   return (
-    <div className="bg-warning" style={{ marginBottom: '80px' }}>
+    <div className="bg-dark" style={{ marginBottom: '80px' }}>
 
     <div className="container">
       <nav className="navbar my-4 navbar-expand-lg navbar-dark  bg-secondary">
@@ -51,8 +51,8 @@ export default function Main() {
             <tr>
               <th scope="col">Laptop_Id</th>
               <th scope="col">Customer_Laptop</th>
-              <th scope="col">Customer_Favourite_Laptop</th>
-              <th scope="col">Customer_Laptop_Price</th>
+              <th scope="col">Customer_Wishlist</th>
+              <th scope="col">Customer_Expected_Laptop_Price</th>
               <th scope="col">Customer_Ratings</th>
               <th scope="col">Customer_Mobile</th>              
               <th scope="col">Operations</th>              

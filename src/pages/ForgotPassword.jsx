@@ -1,16 +1,16 @@
 import React, { useState } from "react";
+import * as Components from "../styles/ForgotPasswordComp";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { toast } from "react-toastify";
 import axios from "axios";
-import "../styles/ForgotPassword.css";
 
 function ForgotPassword() {
   const navigate = useNavigate();
   const [signIn, toggle] = useState(true);
   const [forget, setForget] = useState({
     username: "",
-    password: "",
+    password: ""
   });
 
   const handleForget = async (e) => {
@@ -18,110 +18,98 @@ function ForgotPassword() {
     const { username, password } = forget;
 
     try {
-      await axios.put(`http://localhost:8080/updatefor/${password}/${username}`);
+      await axios.put(`http://localhost:8080/update/${password}/${username}`);
       toast.success("Password Reset Successful", {
         position: toast.POSITION.TOP_CENTER,
-        autoClose: 3000,
+        autoClose: 3000
       });
-      navigate("/");
+      navigate('/login');
     } catch (error) {
       toast.error("Password Reset Failed", {
         position: toast.POSITION.TOP_CENTER,
-        autoClose: 3000,
+        autoClose: 3000
       });
     }
   };
 
   return (
     <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
     >
-      <div className="container">
-        <div className={`sign-up-container ${signIn ? "sign-in" : ""}`}>
-          <form className="form">
-            <h2 className="title">Reset Password</h2>
+      <Components.Container>
+        <Components.SignUpContainer signinIn={signIn}>
+          <Components.Form>
+            <Components.Title>Reset Password</Components.Title>
             <br />
-            <label className="title1">Reset Code:</label>
+            <Components.Title1>ResetCode:</Components.Title1>
             <br />
-            <input type="text" placeholder="Enter Your Code Here" required />
+            <Components.Input type="text" placeholder="Enter Your Code Here" required />
             <br />
-            <label className="title1">Password:</label>
+            <Components.Title1>Password:</Components.Title1>
             <br />
-            <input type="text" placeholder="Enter Your Password Here" required />
+            <Components.Input type="text" placeholder="Enter Your Password Here" required />
             <br />
-            <label className="title1">Repeat Again:</label>
+            <Components.Title1>RepeatAgain:</Components.Title1>
             <br />
-            <input
-              type="email"
-              placeholder="Re-Enter Your Password Here"
-              required
-            />
+            <Components.Input type="email" placeholder="Re-Enter Your Password Here" required />
             <br />
 
-            <button className="button" onClick={() => navigate("/signin")}>
-              Reset
-            </button>
+            <Components.Button onClick={() => navigate('/signin')}>Reset</Components.Button>
             <br />
-          </form>
-        </div>
+          </Components.Form>
+        </Components.SignUpContainer>
 
-        <div className={`sign-in-container ${signIn ? "sign-in" : ""}`}>
-          <form className="form">
-            <h2 className="title">Forgot Password?</h2>
+        <Components.SignInContainer signinIn={signIn}>
+          <Components.Form className="forgot-container">
+            <Components.Title>Forgot Password?</Components.Title>
             <br />
-            <label className="title1">Username:</label>
+            <Components.Title1>Username:</Components.Title1>
             <br />
-            <input
+            <Components.Input
               type="email"
-              placeholder="Enter Your Recovery-number Here"
+              placeholder="Enter Your Username Here"
               required
               value={forget.username}
-              onChange={(e) =>
-                setForget({ ...forget, username: e.target.value })
-              }
+              onChange={(e) => setForget({ ...forget, username: e.target.value })}
             />
             <br />
-            <label className="title1">Reset Password:</label>
+            <Components.Title1>New Password:</Components.Title1>
             <br />
-            <input
+            <Components.Input
               type="password"
-              placeholder="Enter Your Recovery-mail Here"
+              placeholder="Enter Your New Password Here"
               required
               value={forget.password}
-              onChange={(e) =>
-                setForget({ ...forget, password: e.target.value })
-              }
+              onChange={(e) => setForget({ ...forget, password: e.target.value })}
             />
             <br />
-          </form>
-        </div>
+          </Components.Form>
+        </Components.SignInContainer>
 
-        <div className={`overlay-container ${signIn ? "sign-in" : ""}`}>
-          <div className="overlay">
-            <div className="left-overlay-panel">
-              <h2 className="title">Wanna Re-check or Change Your Details</h2>
-              <p className="paragraph">
+        <div className="overlay">
+        <Components.OverlayContainer signinIn={signIn}>
+          <Components.Overlay signinIn={signIn}>
+            <Components.LeftOverlayPanel signinIn={signIn}>
+              <Components.Title>Wanna Re-check or Change Your Details</Components.Title>
+              <Components.Paragraph>
                 Make Sure The Details You Give Are Correct
-              </p>
-              <button className="ghost-button" onClick={() => toggle(true)}>
+              </Components.Paragraph>
+              <Components.GhostButton onClick={() => toggle(true)}>
                 Back to Forgot Page
-              </button>
-            </div>
+              </Components.GhostButton>
+            </Components.LeftOverlayPanel>
 
-            <div className="right-overlay-panel">
-              <h2 className="title">
-                Once You Enter The Details Click Verify
-              </h2>
-              <p className="paragraph">Your Password Will Be Re-set</p>
-              <button className="ghost-button" onClick={handleForget}>
-                Reset Password
-              </button>
-            </div>
-          </div>
+            <Components.RightOverlayPanel signinIn={signIn}>
+              <Components.Title>Once You Enter The Details Click Verify</Components.Title>
+              <Components.Paragraph>Your Password Will Be Re-set</Components.Paragraph>
+              <Components.GhostButton  onClick={handleForget}>Reset Password</Components.GhostButton>
+            </Components.RightOverlayPanel>
+          </Components.Overlay>
+        </Components.OverlayContainer>
         </div>
-      </div>
+      </Components.Container>
     </motion.div>
   );
 }
