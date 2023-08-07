@@ -36,7 +36,7 @@ export const Login = (props) => {
       try {
         const response = await axios.post(`http://localhost:8080/login/${username}/${password}`, data);
         if (response.data === "Login successful") {
-          console.log("Login successful");
+          console.log(response.data);
           toast.success("Login Success");
           navigate("/");
         } else {
@@ -45,6 +45,7 @@ export const Login = (props) => {
       } catch (error) {
         console.log("API error:", error);
         toast.error("An error occurred while logging in");
+        toast.error("Please Check Your Password Again");
       }
     } else {
       setErrors(validationErrors);

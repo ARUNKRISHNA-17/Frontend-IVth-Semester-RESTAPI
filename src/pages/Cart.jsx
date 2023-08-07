@@ -15,7 +15,7 @@ export const Cart = () => {
   const navigate = useNavigate();
 
   const handleSubmit = async () => {
-    navigate('/shop');
+    navigate('/');
     toast.success("Product Ordered");
     toast.success("The product will be delivered to your doorstep");
   };
@@ -44,7 +44,7 @@ export const Cart = () => {
       {totalAmount > 0 ? (
         <div className="checkout">
           <p className="total"> Subtotal: Rs.{totalAmount} </p>
-          <button onClick={() => navigate("/")}> Continue Shopping </button>
+          <button onClick={() => navigate("/shop")}> Continue Shopping </button>
           <button onClick={handleSubmit}
           >{" "}Checkout{" "}</button>
         </div>
